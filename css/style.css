@@ -1,0 +1,774 @@
+* { 
+	box-sizing: border-box;
+}
+html, body {
+	min-height: 100%;
+	background: #ebebeb;
+	color: #000;
+}
+	/* sets the body height of the browser, so that backgrounds and div heights work correctly. Color and background will almost certainly be altered; they are just placeholders */
+	
+body {
+	font-size: 1.4rem;
+	text-rendering: optimizeLegibility;
+}
+	/* sets the base font size for the document; turns on kerning pairs and ligatures */
+	
+body, ul, ol, dl {
+	margin: 0;
+}
+article, aside, audio, 
+footer, header, nav, section, video {
+	display: block; 
+	}
+	
+	/* ensures that older browsers will display HTML5 elements correctly */
+	
+h1 {
+	font-size: 1.4rem;
+}
+	/* begins to set up font sizes relative to base rem – h1 has been used as an example */
+	
+p { 
+	-ms-word-break: break-all;
+	word-break: break-all;
+	word-break: break-word;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+} 
+	/* sets hyphenation by default on paragraphs */
+	
+textarea { 
+	resize: vertical;
+}
+ /* changes textarea resizing from "both" (UA default) to vertical only */
+ 
+table { border-collapse: collapse; }
+td {
+	padding: .5rem;
+}
+	/* causes tables to actually look like tables */
+	
+img { 
+	border: none;
+	max-width: 100%;
+}
+	/* removes outlines from linked images (for older browsers and IE), sets up images for responsive design layout */
+	
+input[type="submit"]::-moz-focus-inner, 
+	input[type="button"]::-moz-focus-inner {
+		border : 0px;
+	}
+	/* removes the inner border effect from focused buttons for form elements in Firefox */
+	
+input[type="search"] { 
+	-webkit-appearance: textfield;
+} 
+input[type="submit"] { 
+	-webkit-appearance:none;
+}
+	/* removes the OS X appearance from HTML5 search inputs and submit buttons when viewed in Safari */
+	
+input:required:after {
+	color: #f00;
+	content: " *";
+}
+	/* sets up required form fields with the conventional following red asterix */
+input[type="email"]:invalid { 
+	background: #f00;
+}
+	/* causes a visual alert in browsers that do client-side checking of HTML5 email field – this may already be the default in some browsers. */
+	
+.right { 
+	float: right;
+	margin-left: 2rem;
+	clear: right;
+}
+.left { 
+	float: left;
+	margin-right: 2rem;
+	clear: left;
+}
+	/* allows a quick shortcut for floating elements left and right while avoiding the “float quirk” problem */
+	
+sub, sup { 
+	line-height: 0;
+}
+    /* sets superscript and subscript text so that it doesn't throw off leading for elements in which they are included */
+
+
+
+@font-face {
+    font-family: 'interstate-reg';
+    src: url("../fonts/Interstate-regular.ttf");
+}
+
+@font-face {
+    font-family: 'interstate-bold';
+    src: url("../fonts/Interstate-bold.ttf");
+}
+
+@font-face {
+    font-family: 'interstate-light';
+    src: url("../fonts/Interstate-light.ttf");
+}
+
+@font-face {
+    font-family: 'helvetica-light';
+    src: url("../fonts/helvetica_light.otf");
+}
+
+@font-face {
+    font-family: 'myriad-reg';
+    src: url("../fonts/MyriadPro-Light.otf");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    cursor: default;
+    font-family: Helvetica, sans-serif;
+    font-weight: normal;
+    margin: 0;
+}
+
+header {
+    background-color: #fff;
+}
+
+.header-container {
+    display: flex;
+    height: 160px;
+    margin: 0 auto;
+    max-width: 1296px;
+}
+
+.header-container .logo-container {
+    background-color: #fff;
+    height: 170px;
+    min-width: 170px;
+    padding-top: 20px;
+    text-align: center;
+    width: 170px;
+}
+
+.header-container .logo-container img {
+    height: 150px;
+    width: 150px;
+}
+
+.logo-title {
+    border-right: 2px solid #cccccc;
+    height: fit-content;
+    margin-top: 62px;
+    padding-left: 3%;
+    padding-right: 4%;
+}
+
+.logo-title h3,
+.logo-title h2 {
+    font-family: 'interstate-bold';
+    margin: 0;
+}
+
+.logo-title h3 {
+    color: #009bfa;
+    font-size: 21px;
+}
+
+.logo-title h2 {
+    color: #193989;
+    font-size: 54px;
+    /* font-size: calc(34px + (54 - 34) * ((100vw - 940px) / (1920 - 940))); */
+    height: 50px;
+}
+
+nav {
+    height: fit-content;
+    padding-top: 115px;
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    height: 19px;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 10px;
+    padding-left: 5%;
+}
+
+nav ul li {
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 0 10px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    cursor: pointer;
+}
+
+.header-divider {
+    background-color: #001254;
+    height: 11px;
+    width: 100%;
+}
+
+.banner-container {
+    background-image: url(../img/banner.png);
+    background-position-y: -14px;
+    height: 526px;
+    padding-top: 135px;
+}
+
+.banner-container .banner-inner-container,
+section.sec1-container,
+section.sec2-container .sec2-inner-container,
+footer .footer-inner-container {
+    margin: 0 auto;
+    max-width: 1296px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.banner-container .banner-inner-container .text-container {
+    max-width: 560px;
+}
+
+.banner-container .banner-inner-container .text-container h1 {
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.banner-container .banner-inner-container .text-container h2 {
+    color: #d4e1ed;
+    font-family: 'helvetica-light';
+    font-size: 36px;
+}
+
+.sec1-container {
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+.primary-header {
+    font-size: 34px;
+    margin-bottom: 5px;
+}
+
+.secondary-header {
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+.sec1-inner-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.sec1-inner-container::-webkit-scrollbar {
+    display: none;
+}
+
+.content-holder {
+    background-color: #fff;
+    box-shadow: 1px 1px 10px #b9b9b9;
+    margin: 0 5px;
+    max-width: 416px;
+    min-width: 290px;
+    position: relative;
+    width: 33%;
+}
+
+.content-holder .content-holder-inner {
+    padding: 36px 24px 30px;
+}
+
+.content-holder .content-holder-inner img {
+    margin-bottom: 24px;
+}
+
+.content-holder .content-holder-inner h2 {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.content-holder .divider {
+    bottom: 0;
+    height: 12px;
+    position: absolute;
+    width: 100%;
+}
+
+.sec2-container {
+    background-image: url(../img/sec2-bg.png);
+    height: 447px;
+    position: relative;
+    text-align: center;
+}
+
+.sec2-container .sec2-inner-container {
+    color: #fff;
+    padding-bottom: 20px;
+    padding-top: 115px;
+    text-align: center;
+}
+
+.sec2-container .sec2-inner-container h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sec2-container .sec2-inner-container h3 {
+    color: #f7f7f7;
+    font-size: 24px;
+}
+
+.sec2-container .primary-button {
+    bottom: 60px;
+    position: absolute;
+    margin-left: -93.51px;
+}
+
+.primary-button {
+    background-color: transparent;
+    border: 1px solid #f7f7f7;
+    color: #f7f7f7;
+    cursor: pointer;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px 45px;
+    text-transform: capitalize;
+    transition: ease-in; 
+    transition-duration: 0.1s;
+}
+
+.primary-button:hover {
+    background-color: #f7f7f7;
+    color: #000 !important;
+}
+
+.content-holder.b {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.triangle-a {
+    width: 0;
+    height: 0;
+    border-bottom: 18px solid #3b4e96;
+    border-left: 18px solid transparent;
+}
+
+.calendar-holder {
+    background-color: #001254;
+    color: #fff;
+    height: 86px;
+    left: 26px;
+    padding: 14px 20px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 0;
+    width: 93px;
+}
+
+.calendar-holder h3 {
+    font-family: 'interstate-light';
+    font-size: 17px;
+}
+
+.calendar-holder h2 {
+    font-family: 'interstate-bold';
+    font-size: 36px;
+}
+
+.content-holder.b .content-holder-inner-b {
+    background-color: #1450d2;
+    color: #f7f7f7;
+    height: 335px;
+    padding: 90px 25px 0px;
+    background-image: linear-gradient(#1450d2 285px, #1040a8);
+}
+
+.content-holder.b .content-holder-inner-b h2 {
+    font-family: 'interstate-bold';
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.content-holder.b .content-holder-inner-b h3 {
+    font-family: 'interstate-light';
+    font-size: 15px;
+}
+
+.content-holder.b .content-holder-inner-b .primary-button {
+    bottom: 80px;
+    border-color: #f7f7f7;
+    color: #f7f7f7;
+    font-family: 'interstate-bold';
+    font-weight: normal;
+    padding: 18px 20px;
+    position: absolute;
+}
+
+.content-holder.b .content-holder-inner-b .location-holder {
+    bottom: 0;
+    border-bottom: 50px solid #ebebeb;
+    border-left: 40px solid transparent;
+    height: 0;
+    left: 30px;
+    position: absolute;
+    right: 0;
+}
+
+.content-holder.b .content-holder-inner-b .location-holder h2 {
+    color: #000;
+    font-family: 'interstate-bold';
+    font-size: 24px;
+    margin: 0;
+    padding: 10px;
+    padding-right: 20px;
+    text-align: end;
+}
+
+footer {
+    background-color: #707070;
+    color: #fff;
+    font-family: 'myriad-reg';
+    font-size: 14px;
+}
+
+footer .footer-inner-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+footer .footer-inner-container p {
+    cursor: default;
+    margin: 0;
+}
+
+footer .footer-inner-container img {
+    height: 25px;
+    margin: 0 5px;
+    cursor: pointer;
+    width: 25px;
+}
+
+footer .footer-inner-container img:last-child {
+    margin-right: 0;
+}
+
+.logo-container-mobile {
+    background-color: #eaecee;
+    padding: 10px;
+    text-align: center;
+}
+
+.menu-container-mobile{
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+}
+  
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+  
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+    background-color: red;
+}
+  
+.change .bar2 {opacity: 0;}
+  
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+    background-color: red;
+}
+
+#page-overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.dropdown-container-mobile {
+    display: none;
+    height: calc(100% - 96px);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.dropdown-container-mobile h3 {
+    border-bottom: 1px solid #bfbfbf;
+    color: #193989;
+    font-family: 'interstate-light';
+    font-size: 24px;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.dropdown-container-mobile nav {
+    height: calc(100% - 40px);
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.dropdown-container-mobile nav::-webkit-scrollbar {
+    display: none;
+  }
+
+.dropdown-container-mobile nav ul {
+    display: block;
+    height: initial;
+    padding: 0;
+}
+
+.dropdown-container-mobile nav ul li {
+    color: #707070;
+    font-family: 'myriad-reg';
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.dropdown-container-mobile nav ul li a {
+    background-color: #ebebeb;
+    display: block;
+    padding: 25px;
+    width: 100%;
+}
+
+.mobile-carousel {
+    margin-top: 20px;
+}
+
+.mobile-carousel ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-carousel ul li {
+    border: 1px solid #b7b7b7;
+    border-radius: 10px;
+    height: 16px;
+    margin: 0 5px;
+    width: 16px;
+}
+
+.mobile-carousel ul li.active {
+    background-color: #b7b7b7;
+}
+
+.mobile-menu {
+    box-shadow: 1px 1px 10px #838383;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.mobile-footer .dropdown-container-mobile {
+    background-color: #cccccc;
+}
+
+.mobile-footer .dropdown-container-mobile h3 {
+    border-color: #999999;
+    margin-bottom: 15px;;
+}
+
+.mobile-footer .dropdown-container-mobile .two-buttons {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.mobile-footer .dropdown-container-mobile .two-buttons li {
+    width: 49%;
+}
+
+.footer-logo-container {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.mobile-menu,
+.mobile-carousel,
+.mobile-footer {
+    display: none;
+}
+
+@media (max-width: 940px) {
+    .desktop-menu,
+    .desktop-footer {
+        display: none;
+    }
+
+    .mobile-menu,
+    .mobile-carousel,
+    .mobile-footer,
+    .mobile-footer .dropdown-container-mobile {
+        display: block;
+    }
+
+    .sec1-container.a {
+        background-color: #001a7a;
+        color: #fff;
+    }
+
+    .secondary-header {
+        margin-bottom: 10px;
+    }
+
+    .content-holder {
+        box-shadow: none;
+    }
+
+    .content-holder .content-holder-inner {
+        padding: 25px 15px;
+    }
+
+    .content-holder {
+        min-width: 200px;
+        max-width: 200px;
+        height: fit-content;
+    }
+
+    .content-holder.active {
+        min-width: 290px;
+        max-width: 290px;
+        height: initial;
+    }
+
+    .content-holder.b .content-holder-inner-b .location-holder h2 {
+        font-size: 14px;
+    }
+
+    .content-holder.b.active .content-holder-inner-b .location-holder h2 {
+        padding-top: 18px;
+        font-size: 18px;
+    }
+
+    .content-holder.b .content-holder-inner-b .primary-button {
+        bottom: 65px;
+        font-size: 14px;
+        padding: 10px 20px;
+        transition: none;
+    }
+
+    .content-holder.b.active .content-holder-inner-b .primary-button {
+        bottom: 80px;
+        font-size: 18px;
+        padding: 16px 45px;
+        transition: none;
+    }
+
+    .content-holder.b .content-holder-inner-b {
+        background-color: #001a7a;
+        background-image: none;
+        height: 285px;
+    }
+
+    .content-holder.b.active .content-holder-inner-b {
+        height: 335px;
+    }
+
+    .content-holder.b .content-holder-inner-b h2 {
+        font-size: 18px;
+    }
+
+    .content-holder.b.active .content-holder-inner-b h2{
+        font-size: 28px;
+    }
+
+    .content-holder.b .content-holder-inner-b h3 {
+        font-size: 12px;
+    }
+
+    .content-holder.b.active .content-holder-inner-b h3 {
+        font-size: 15px;
+    }
+
+    .content-holder .content-holder-inner h2 {
+        font-size: 20px;
+    }
+
+    .sec1-inner-container {
+        justify-content: initial;
+        overflow: hidden;
+    }
+
+    .banner-container {
+        padding-top: 221px;
+    }
+    
+    .triangle-a {
+        border-bottom: 18px solid #c2c2c2;
+    }
+
+    .calendar-holder {
+        background-color: #f7f7f7;
+        color: #008c82;
+    }
+
+    footer {
+        background-color: #eaecee;
+    }
+}
+
+@media (max-width: 690px) {
+    .sec2-container .sec2-inner-container h2 {
+        font-size: 30px;
+    }
+
+    .sec2-container .sec2-inner-container h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 570px) {
+    .banner-container .banner-inner-container .text-container h1 {
+        font-size: 40px;
+    }
+
+    .banner-container .banner-inner-container .text-container h2 {
+        font-size: 26px;
+    }
+}
